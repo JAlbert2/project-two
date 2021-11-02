@@ -6,16 +6,14 @@ import '../src/app.js';
 describe('LearningCard', () => {
   let element;
   beforeEach(async () => {
-    element = await fixture(html`<body-content
-    type="objective"
-  >
-  <p>TESTING SCAFFOLD</p>
-  </body-content>`);
+    element = await fixture(html`<card-scaffold type="objective">
+      <p>TESTING SCAFFOLD</p>
+    </card-scaffold>`);
   });
   it('renders the header element', () => {
-    const header = element.shadowRoot.querySelector('slot');
-    expect(body).to.exist;
-    expect(body.assignedElements({ flat: true })[0].innerText).to.equal(
+    const content = element.shadowRoot.querySelector('div slot');
+    expect(content).to.exist;
+    expect(content.assignedElements({ flat: true })[0].innerText).to.equal(
       'TESTING SCAFFOLD'
     );
   });
